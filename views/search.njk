@@ -28,8 +28,9 @@
           {% for track in rows %}
             <div class="card mb-3">
               <div class="card-body">
-                <h5 class="card-title">{{ track.name }}</h5>
-                {# <p class="card-text">{{ track.artist }}</p> #}
+                <h5 class="card-title">{{ track.track }}</h5>
+                <p class="card-text">{{ track.artist }}</p>
+                <p class="card-text">{{ track.album }}</p>
                 {# <a href="/song/{{ row.id }}" class="btn btn-primary">View</a> #}
               </div>
             </div>

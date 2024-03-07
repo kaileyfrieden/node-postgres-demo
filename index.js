@@ -32,7 +32,7 @@ app.get('/', async (req, res) => {
     if(query !== undefined) {
         query = query.toLowerCase()
         let likeQuery = `%${query}%`
-        results = await client.query("select * from track where LOWER(name) LIKE $1", [likeQuery])
+        results = await client.query("select track.name track, album.title album, artist.name artist FROM track INNER JOIN album ON track.album_id = album.album_id INNER JOIN artist ON album.artist_id = artist.artist_id where lower(track.name) LIKE $1", [likeQuery])
     }
 
 
@@ -48,3 +48,5 @@ app.get('/artist/:id', async (req, res) => {
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
+
+
